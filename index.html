@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Nicole 💖</title>
+<style>
+body{
+ background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+ font-family:Arial,sans-serif;
+ text-align:center;
+ color:#fff;
+ margin:0;
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+.card{
+ background:rgba(0,0,0,.25);
+ padding:25px;
+ width:90%;
+ max-width:400px;
+ border-radius:20px;
+}
+.heart{
+ font-size:3em;
+ margin:15px 0;
+ animation:latido 1s infinite;
+}
+@keyframes latido{
+ 0%{transform:scale(1)}
+ 50%{transform:scale(1.2)}
+ 100%{transform:scale(1)}
+}
+button{
+ padding:16px;
+ border:none;
+ border-radius:25px;
+ font-size:1.05em;
+ width:100%;
+ margin-top:10px;
+}
+.yes{background:#ff4d6d;color:white}
+.no{background:#555;color:white}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>Nicole 💕</h1>
+<p id="msg">Te amo muchísimo. Eres lo mejor que me ha pasado.</p>
+<div class="heart">❤️</div>
+
+<button class="yes" id="yes">Yo también te amo 💖</button>
+<button class="no" id="no">No me importa caballo 😐</button>
+</div>
+
+<script>
+let i = 0;
+const texts = [
+ "¿En serio no me amas mi vida? 😔",
+ "¿Segura que no me amas? 🥺",
+ "Me estás rompiendo el corazón 💔",
+ "Ya dime que sí amor 😭",
+ "Ok última… ¿me amas? 😩"
+];
+
+document.getElementById("no").onclick = () => {
+ document.getElementById("msg").innerText = texts[i % texts.length];
+ i++;
+};
+
+document.getElementById("yes").onclick = () => {
+ document.getElementById("msg").innerText =
+ "SABÍA 😍💖 Yo también te amo con todo mi corazón.";
+ document.getElementById("no").remove();
+ document.getElementById("yes").remove();
+ document.querySelector(".heart").innerText = "💘💘💘";
+};
+</script>
+
+</body>
+</html>
